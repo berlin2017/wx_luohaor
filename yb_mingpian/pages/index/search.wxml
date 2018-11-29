@@ -1,0 +1,13 @@
+<view class="fui-searchbar bar {{item.search_style==1?'search_fixed':''}}">
+    <view class="searchbar" style="background:{{item.li_bg_color}}">
+        <navigator class="weui-search-bar__form" hoverClass="none" url="/yb_mingpian/pages/goods/index/index?fromsearch=1&key={{item.default}}">
+            <view class="search-input">
+                <view class="search_box" style="background:{{item.bg_color}}">
+                    <image src="{{icons.search}}" style="width:18px;height:18px;"></image>
+                    <text style="color:{{item.text_color}}">{{item.default!=''?item.default:'商品搜索'}}</text>
+                </view>
+            </view>
+        </navigator>
+    </view>
+</view>
+<view style="height:2.7rem;line-height:2.7rem;" wx:if="{{item.search_style==1}}"></view>

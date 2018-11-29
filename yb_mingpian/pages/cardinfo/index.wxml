@@ -1,0 +1,278 @@
+<view class="body" wx:if="show">
+    <include src="../index/login.wxml"></include>
+    <view id="bd" wx:if="{{show}}">
+        <view class="pg-m2 dc-bk2">
+            <view bindtap="to_cardlist" class="card_box">
+                <image mode="aspectFill" src="/yb_mingpian/static/card/card_box_icon.png"></image>
+            </view>
+            <view class="share_box" style="z-index:99999999999999;" wx:if="{{share}}">
+                <view class="share_li_box">
+                    <view class="share_li" style="position: relative">
+                        <button bindgetphonenumber="{{get_phone?'getPhoneNumber':''}}" class="test_button" openType="share" style="width:100%;height:100%;overflow: hidden;z-index:999999999999999;filter:alpha(Opacity=0);-moz-opacity:0;opacity:0;position:absolute;top:0;left:0;"></button>
+                        <image mode="aspectFill" src="/yb_mingpian/static/card/wx_icon01.png"></image>
+                        <text>微信好友</text>
+                    </view>
+                    <view bindtap="to_poster" class="share_li" style="z-index:99999999999999;">
+                        <image mode="aspectFill" src="/yb_mingpian/static/card/wx_icon02.png"></image>
+                        <text>名片海报</text>
+                    </view>
+                </view>
+                <view capture-bind:tap="show_share" class="share_btn_cancel" style="z-index:99999999999999;">
+                    <text>取消</text>
+                </view>
+            </view>
+            <view bindtap="show_share" class="pop_bg" wx:if="{{share}}"></view>
+            <view bindtap="{{phone_status&&phone_status.index_get_pho==1&&get_phone?'':'to_chat'}}" class="leave_message" wx:if="{{card_id!=0&&!share}}">
+                <button bindgetphonenumber="{{get_phone?'getPhoneNumber':''}}" class="test_button" openType="{{phone_status&&phone_status.index_get_pho==1&&get_phone?'getPhoneNumber':''}}" style="width:100%;height:100%;overflow: hidden;z-index:999999999999;filter:alpha(Opacity=0);-moz-opacity:0;opacity:0;position:absolute;top:0;left:0;"></button>
+                <image mode="aspectFill" src="/yb_mingpian/static/card/leave_message_icon.png"></image>
+                <text class="no" wx:if="{{news_num&&news_num>0}}">{{news_num}}</text>
+            </view>
+            <view class="pgm21 dc-bk1">
+                <view class="k11" style="position: relative" wx:if="{{info.cid==1}}">
+                    <form reportSubmit bindsubmit="bindconfirm">
+                        <button class="test_button" formType="submit" style="width:100%;height:100%;z-index:9999999;filter:alpha(Opacity=0);-moz-opacity:0;opacity:0;position:absolute;top:0;left:0;"></button>
+                    </form>
+                    <view class="com_name">{{info.bus.name?info.bus.name:'这里是公司名称'}}</view>
+                    <view class="user_info">
+                        <image bindtap="previewImage" mode="aspectFill" src="{{info.head_photo?info.head_photo:'/yb_mingpian/static/card/defaultlogo.png'}}"></image>
+                        <view class="user_info_box">
+                            <text class="text01">{{info.user_name}}</text>
+                            <text class="text02">{{info.position}}</text>
+                        </view>
+                        <view class="clear"></view>
+                    </view>
+                    <view class="com_info">
+                        <view class="com_info_li" wx:if="{{info.tel}}">
+                            <image mode="aspectFill" src="/yb_mingpian/static/card/li_icon01.png"></image>
+                            <text>{{info.tel}}</text>
+                        </view>
+                        <view class="com_info_li" wx:if="{{info.email}}">
+                            <image mode="aspectFill" src="/yb_mingpian/static/card/li_icon02.png"></image>
+                            <text>{{info.email}}</text>
+                        </view>
+                        <view class="com_info_li" wx:if="{{info.bus.address}}">
+                            <image mode="aspectFill" src="/yb_mingpian/static/card/li_icon03.png"></image>
+                            <text>{{info.bus.address}}</text>
+                        </view>
+                    </view>
+                    <image class="card_bg" mode="aspectFill" src="/yb_mingpian/static/card/card_mod_bg.jpg"></image>
+                </view>
+                <view class="k1" style="position: relative" wx:if="{{info.cid==2}}">
+                    <form reportSubmit bindsubmit="bindconfirm">
+                        <button class="test_button" formType="submit" style="width:100%;height:100%;z-index:9999999;filter:alpha(Opacity=0);-moz-opacity:0;opacity:0;position:absolute;top:0;left:0;"></button>
+                    </form>
+                    <view class="m1">
+                        <image bindtap="previewImage" mode="aspectFill" src="{{info.head_photo?info.head_photo:'/yb_mingpian/static/card/defaultlogo.png'}}"></image>
+                    </view>
+                    <view class="m2">
+                        <view class="dc-pgm1">
+                            <view class="txtb">
+                                <view class="n1">
+                                    <text class="h3">{{info.user_name}}</text>
+                                    <text class="small" wx:if="{{info.position}}">{{info.position}}</text>
+                                </view>
+                                <view class="n2">
+                                    <text class="iph">{{info.tel}}</text>
+                                </view>
+                            </view>
+                            <view class="imgb">
+                                <image mode="aspectFit" src="{{info.bus.logo}}"></image>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="clear"></view>
+            <view class="pgm22 {{dlopenarr[0]}}">
+                <view class="pgm22-m1">
+                    <text bindtap="dlopenclose" class="p1" data-id="0">{{kaiguaninfo}}</text>
+                </view>
+                <view class="pgm22-m2 dn">
+                    <view class="li" wx:if="{{info.phone}}">
+                        <view class="m1">
+                            <text class="tt">座机</text>
+                            <view class="txt1">
+                                <text>{{info.phone}}</text>
+                            </view>
+                        </view>
+                        <view bindtap="phone" class="m2" data-phone="{{info.phone}}">
+                            <text class="btn1">拨打</text>
+                        </view>
+                    </view>
+                    <view class="li" wx:if="{{info.tel}}">
+                        <view class="m1">
+                            <text class="tt">电话</text>
+                            <view class="txt1">
+                                <text>{{info.tel}}</text>
+                            </view>
+                        </view>
+                        <view bindtap="phone" class="m2" data-phone="{{info.tel}}">
+                            <text class="btn1">拨打</text>
+                        </view>
+                    </view>
+                    <view class="li" wx:if="{{info.wechat_number}}">
+                        <view class="m1">
+                            <text class="tt">微信</text>
+                            <view class="txt1">
+                                <text>{{info.wechat_number}}</text>
+                            </view>
+                        </view>
+                        <view bindtap="Clipboard" class="m2" data-i="{{info.wechat_number}}" data-type="微信">
+                            <text class="btn1">复制</text>
+                        </view>
+                    </view>
+                    <view class="li" wx:if="{{info.email}}">
+                        <view class="m1">
+                            <text class="tt">邮箱</text>
+                            <view class="txt1">
+                                <text>{{info.email}}</text>
+                            </view>
+                        </view>
+                        <view bindtap="Clipboard" class="m2" data-i="{{info.email}}" data-type="邮箱">
+                            <text class="btn1">复制</text>
+                        </view>
+                    </view>
+                    <view class="li" wx:if="{{info.bus.name}}">
+                        <view class="m1">
+                            <text class="tt">公司</text>
+                            <view class="txt1">
+                                <text>{{info.bus.name}}</text>
+                            </view>
+                        </view>
+                        <view bindtap="Clipboard" class="m2" data-i="{{info.bus.name}}" data-type="公司名称">
+                            <text class="btn1">复制</text>
+                        </view>
+                    </view>
+                    <view class="li" wx:if="{{info.bus.address}}">
+                        <view class="m1">
+                            <text class="tt">地址</text>
+                            <view class="txt1">
+                                <text>{{info.bus.address}}</text>
+                            </view>
+                        </view>
+                        <view bindtap="Clipboard" class="m2" data-i="{{info.bus.address}}" data-type="地址">
+                            <text class="btn1">复制</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="clear"></view>
+            <view class="pgm23 wp">
+                <view class="btnL1">
+                    <view class="li">
+                        <view bindtap="{{info.is_relay==1?'show_share':''}}" style="padding-left:0 !important;padding-right:0 !important;overflow:auto !important;">
+                            <text class="btn1">分享名片</text>
+                        </view>
+                    </view>
+                    <view bindtap="{{phone_status&&phone_status.index_get_pho==1&&get_phone?'':'addPhoneContact'}}" class="li" style="position:relative;" wx:if="{{!share}}">
+                        <text class="btn2">存入手机通讯录</text>
+                        <button bindgetphonenumber="{{get_phone?'getPhoneNumber2':''}}" class="btn2" openType="{{phone_status&&phone_status.index_get_pho==1&&get_phone?'getPhoneNumber':''}}" style="width:320rpx;height:80rpx;overflow: hidden;z-index:999999999999;filter:alpha(Opacity=0);-moz-opacity:0;opacity:0;position:absolute;top:0;left:20rpx;"></button>
+                    </view>
+                </view>
+            </view>
+            <view class="clear"></view>
+            <view class="pgm24 wp">
+                <view class="mm1">
+                    <view class="bx1">
+                        <view class="n1" wx:if="{{info.zan.length>0}}">
+                            <view class="n1-m1">
+                                <image mode="aspectFit" src="{{item.user_headimg}}" wx:if="{{index<6}}" wx:for="{{info.zan}}"></image>
+                                <text class="user_face_more" wx:if="{{info.zan.length>6}}">...</text>
+                            </view>
+                        </view>
+                        <view class="clear"></view>
+                        <view class="n2">
+                            <text>{{info.click}}人浏览</text>
+                        </view>
+                    </view>
+                    <view bindtap="likes" class="bx2">
+                        <image mode="aspectFit" src="{{like?'/yb_mingpian/static/card/pt-img38.png':'/yb_mingpian/static/card/pt-img37.png'}}"></image>
+                        <view class="clear"></view>
+                        <view class="p">靠谱
+              <text wx:if="{{info.likes}}">{{f.toNum(info.likes)}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="clear"></view>
+        <view class="pg-m2 dc-bk2 wp dc-m1" wx:if="{{info.goods_num&&info.goods_num>0}}">
+            <view class="pgm25">
+                <view class="dc-rqdl2">
+                    <view class="dc-rqdt2">
+                        <text class="h3">我推荐的商品</text>
+                        <text bindtap="to_goods" class="more" data-id="0">全部商品></text>
+                    </view>
+                    <view class="dc-rqdd2">
+                        <view class="imgp2-ul">
+                            <view class="li" wx:for="{{info.goods}}">
+                                <view bindtap="to_goods" class="li-m1" data-id="{{item.goods_id}}">
+                                    <image class="img1" mode="aspectFit" src="{{item.pic}}"></image>
+                                    <view class="clear"></view>
+                                    <view class="txt">
+                                        <text class="h3">{{item.goods_name}}</text>
+                                        <view class="clear"></view>
+                                        <text class="price">￥{{item.price}}</text>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="clear"></view>
+        <view class="pg-m2 dc-bk2 wp dc-m1" wx:if="{{info.profile}}">
+            <view class="pgm26">
+                <view class="dc-rqdl3">
+                    <view class="dc-rqdt3">
+                        <text class="h3">我的个人简介</text>
+                    </view>
+                    <view class="dc-rqdd3">
+                        <view class="pgm26-m1">
+                            <template is="wxParse" data="{{wxParseData:wxParseData.nodes}}"></template>
+                        </view>
+                        <div class="clear"></div>
+                        <view class="dc-yinpin1" wx:if="{{info.vioce_profile}}">
+                            <audio loop author="{{info.user_name}}" controls="true" id="myAudio" name="我的语音介绍" poster="/yb_mingpian/static/card/vioce.jpg" src="{{info.vioce_profile}}"></audio>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="clear"></view>
+        <view class="pg-m2 dc-bk2 wp dc-m1" wx:if="{{info.effect_tag_num&&info.effect_tag_num>0}}">
+            <view class="pgm26">
+                <view class="dc-rqdl3">
+                    <view class="dc-rqdt3">
+                        <text class="h3">我的印象标签</text>
+                    </view>
+                    <view class="dc-rqdd3">
+                        <view class="tags-ul">
+                            <view class="li" wx:for="{{info.effect_tag}}">
+                                <view bindtap="effect_tag" class="p" data-index="{{index}}">{{index}}
+                  <text> {{item}}</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="clear"></view>
+        <view class="pg-m2 dc-bk2 wp dc-m1" wx:if="{{info.pic_arr&&info.pic_arr.length>0}}">
+            <view class="dc-rqdl3">
+                <view class="dc-rqdt3">
+                    <text class="h3">我的照片</text>
+                </view>
+                <view class="dc-rqdd3">
+                    <view class="pgm27">
+                        <image bindtap="my_photo" data-index="{{index}}" mode="widthFix" src="{{item}}" wx:for="{{info.pic_arr}}"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<import src="/yb_mingpian/utils/wxParse/wxParse.wxml"></import>
+<wxs module="f" src="../../utils/wxs/common.wxs" />

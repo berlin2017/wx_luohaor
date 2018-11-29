@@ -1,0 +1,339 @@
+.ul-List5 {
+    font-size: 0;
+    background-color: #fff;
+}
+
+.ul-List5 .li {
+    display: block;
+    overflow: hidden;
+    padding: 0px 0px;
+}
+
+.ulList5-m1 {
+    overflow: hidden;
+    padding: 16rpx 3%;
+    padding-right: 8%;
+    clear: both;
+    display: block;
+    background: url("http://aishangmiao.com/images/jiatui/ly-img3.jpg") no-repeat 97% center;
+    background-size: 12rpx auto;
+    border-bottom: 1px solid #dedede;
+}
+
+.ulList5-m1 .imgbox,.ulList5-m1 .txtbox {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.ulList5-m1 .imgbox {
+    width: 79rpx;
+    height: 69rpx;
+}
+
+.ulList5-m1 .txtbox {
+    color: #515151;
+    font-size: 28rpx;
+}
+
+.ulList5-m1 {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px solid #efefef;
+    border-radius: 10rpx;
+}
+
+.ulList5-m1 .img1 {
+    flex-shrink: 0;
+    flex-grow: 0;
+    width: 50rpx;
+    height: 40rpx;
+}
+
+.ulList5-m1 .txtbox {
+    flex-grow: 1;
+    padding-left: 20rpx;
+}
+
+.ulList5-m1.nbk {
+    background: transparent;
+}
+
+page {
+    background-color: #ebebeb;
+    padding: 0px 2%;
+    padding-bottom: 30rpx;
+    box-sizing: border-box;
+}
+
+.msgL1 {
+    font-size: 0;
+}
+
+.msgL1 .li {
+    padding: 10rpx 0px;
+}
+
+.msgL1 .li-time {
+    text-align: center;
+}
+
+.msgL1 .li-time text {
+    padding: 10rpx 15rpx;
+    font-size: 24rpx;
+    color: #fff;
+    display: inline-block;
+    background-color: #d1d1d1;
+    border-radius: 10rpx;
+}
+
+.msgL1 .li-left {
+    padding-right: 10%;
+}
+
+.msgL1 .li-right {
+    padding-left: 10%;
+}
+
+.msgL1 .k1 {
+    float: left;
+}
+
+.msgL1 .k2 {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding-left: 30rpx;
+}
+
+.msgL1 .k1 .imgb image {
+    width: 66rpx;
+    height: 66rpx;
+}
+
+.msgL1 .k2 .txtb {
+    position: relative;
+    padding: 25rpx 20rpx;
+    background-color: #fff;
+    border-radius: 8rpx;
+    box-sizing: border-box;
+}
+
+.msgL1 .k2 .txtb::before {
+    content: "";
+    position: absolute;
+    left: -20rpx;
+    top: 22rpx;
+    width: 20rpx;
+    height: 30rpx;
+    background: url("http://mp.sssvip.net/addons/yb_mingpian/core/public/icon/ly-img13.png") no-repeat center center;
+    background-size: 20rpx auto;
+    display: inline-block;
+}
+
+.msgL1 .k2 .txtb .m1 text {
+    display: block;
+    font-size: 26rpx;
+    color: #333;
+}
+
+.msgL1 .k2 .txtb .m2 {
+    padding-top: 0rpx;
+}
+
+.msgL1 .k2 .txtb .m2 .p1 text {
+    display: block;
+    font-size: 24rpx;
+    color: #888;
+}
+
+.msgL1 .k2 .txtb .m2 .p1 {
+    padding-bottom: 10rpx;
+}
+
+.msgL1 .li-right .k1 {
+    float: right;
+}
+
+.msgL1 .li-right .k2 {
+    padding-right: 30rpx;
+    padding-left: 0px;
+    justify-content: flex-end;
+    display: flex;
+}
+
+.msgL1 .li-right .k2 .txtb::before {
+    left: auto;
+    right: -20rpx;
+    background: url("http://mp.sssvip.net/addons/yb_mingpian/core/public/icon/ly-img11.png") no-repeat center center;
+    background-size: 20rpx auto;
+}
+
+.msgL1 .li-left .k2 .txtb {
+    display: inline;
+    display: inline-block;
+    width: auto;
+}
+
+.chat-fd {
+    background-color: #fafafa;
+    padding: 15rpx 0;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    z-index: 1000;
+    width: 100%;
+}
+
+.tags1-ul {
+    font-size: 0;
+    padding-bottom: 10rpx;
+}
+
+.tags1-ul .li {
+    padding: 0px 7rpx;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.tags1-ul .li text {
+    border: 1px solid #dddddd;
+    padding: 2rpx 20rpx;
+    text-align: center;
+    font-size: 26rpx;
+    color: #666;
+    display: inline-block;
+    white-space: nowrap;
+    border-radius: 30rpx;
+}
+
+.tags1-ul .li-a text {
+    border: 0px;
+}
+
+.chat-fd .m2 {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 22rpx;
+    padding-right: 22rpx;
+}
+
+.chat-fd .m2 .j1 {
+    flex-grow: 1;
+}
+
+.chat-fd .m2 .j2 {
+    padding-left: 10rpx;
+    flex-grow: 0;
+}
+
+.chat-fd .m2 .j2 {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.chat-fd .m2 .j2>view {
+    padding-left: 15rpx;
+}
+
+.chat-fd .m2 .j2 image {
+    width: 60rpx;
+    height: 60rpx;
+}
+
+.chat-fd .m2 .j1 .inp1 {
+    border: 1px solid #ddd;
+    border-radius: 8rpx;
+    text-align: left;
+    padding: 4rpx 10rpx;
+    font-size: 26rpx;
+    color: #333;
+    box-sizing: border-box;
+    height: 70rpx;
+    line-height: 70rpx;
+}
+
+.chats_photo {
+    height: 200rpx;
+    width: 200rpx;
+}
+
+.li-left .k2 .chats_photo_box {
+    background: #fff;
+    border-radius: 10rpx;
+    border: 12rpx solid #fff;
+    float: left;
+}
+
+.li-right .k2 .chats_photo_box {
+    background: #fff;
+    border-radius: 10rpx;
+    border: 12rpx solid #fff;
+    float: right;
+}
+
+.li-right .k2 .txtb {
+    background: #a1e85a;
+    border: 2rpx solid #86c845;
+    width: auto;
+    display: inline;
+    display: inline-block;
+}
+
+.add_box {
+    background: #fafafa;
+    position: relative;
+    justify-content: flex-start;
+    display: flex;
+    margin-top: 20rpx;
+}
+
+.add_box:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 0;
+    border-top: 2rpx solid #e6e6e6;
+    transform-origin: 0 0;
+    transform: scaleY(0.5);
+}
+
+.add_li {
+    width: 200rpx;
+    height: 200rpx;
+    text-align: center;
+}
+
+.add_li image {
+    width: 120rpx;
+    height: 120rpx;
+    border: 2rpx solid #d1d1d1;
+    border-radius: 10rpx;
+    line-height: 120rpx;
+    margin-top: 20rpx;
+}
+
+.add_li text {
+    display: block;
+    font-size: 28rpx;
+    color: #828282;
+    width: 200rpx;
+    text-align: center;
+    height: 50rpx;
+    line-height: 50rpx;
+}
+
+.send_icon {
+    width: 60rpx;
+    height: 60rpx;
+    display: inline-block;
+    margin-right: 10rpx;
+    margin-top: 12rpx;
+}

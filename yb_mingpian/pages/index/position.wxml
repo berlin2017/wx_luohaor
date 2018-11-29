@@ -1,0 +1,6 @@
+<view bindtap="navigate" class="contact_tit" data-lat="{{item.latitude}}" data-lng="{{item.longitude}}" data-name="{{item.position_name}}" style="background:{{item.bg_color}}" wx:if="{{item.is_display==1}}">
+    <image class="contact_icon" mode="aspectFit" src="/yb_mingpian/static/images/position_icon.png"></image>
+    <text class="text01">{{item.position_name}}</text>
+    <view class="cl"></view>
+</view>
+<map showLocation controls="{{controls}}" id="map" latitude="{{item.latitude}}" longitude="{{item.longitude}}" markers="{{markers}}" polyline="{{polyline}}" scale="14" style="width: 100%; height: 12rem;" wx:if="{{item.is_display==2}}"></map>

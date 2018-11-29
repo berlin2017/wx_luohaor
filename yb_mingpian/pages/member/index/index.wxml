@@ -1,0 +1,135 @@
+<view class="page navbar" wx:if="{{show}}">
+    <view class="member-head" style="background:#fafafa">
+        <view class="child"></view>
+        <view class="child userinfo">
+            <view class="avatar">
+                <image class="icon" src="{{member.avatarUrl||'/yb_mingpian/static/images/noface.png'}}"></image>
+            </view>
+            <view class="nickname" style="color:#212121;" wx:if="{{member.nickName!=null}}">{{member.nickName}}</view>
+            <view bindtap="relogin" class="level" wx:if="{{member.nickName==null}}">点击登录</view>
+            <view class="member_level" wx:if="{{member.level_name}}">{{member.level_name}}</view>
+        </view>
+        <view class="child"></view>
+    </view>
+    <view class="fui-cell-group fui-cell-click" style="margin-top:0;" wx:if="{{list[0].status==1}}">
+        <navigator class="fui-cell" hoverClass="none" url="/yb_mingpian/pages/order/index">
+            <image class="fui-cell-icon" src="{{icons.cart}}"></image>
+            <view class="fui-cell-text">{{list[0].title}}</view>
+            <view class="order_more">全部订单</view>
+        </navigator>
+        <view class="fui-icon-group nomargin">
+            <navigator class="fui-icon-col" hoverClass="none" url="/yb_mingpian/pages/order/index?status=0">
+                <view class="badge" wx:if="{{member.pending_payment>0}}">{{member.pending_payment}}</view>
+                <view class="icon">
+                    <image src="{{icons.paying48}}"></image>
+                </view>
+                <view class="text">待付款</view>
+            </navigator>
+            <navigator class="fui-icon-col" hoverClass="none" url="/yb_mingpian/pages/order/index?status=1">
+                <view class="badge" wx:if="{{member.pending_shipment>0}}">{{member.pending_shipment}}</view>
+                <view class="icon">
+                    <image src="{{icons.box48}}"></image>
+                </view>
+                <view class="text">待发货</view>
+            </navigator>
+            <navigator class="fui-icon-col" hoverClass="none" url="/yb_mingpian/pages/order/index?status=2">
+                <view class="badge" wx:if="{{member.pending_receipt>0}}">{{member.pending_receipt}}</view>
+                <view class="icon">
+                    <image src="{{icons.car48}}"></image>
+                </view>
+                <view class="text">待收货</view>
+            </navigator>
+            <navigator class="fui-icon-col" hoverClass="none" url="/yb_mingpian/pages/order/index?status=4">
+                <view class="badge" wx:if="{{member.refund>0}}">{{member.refund}}</view>
+                <view class="icon">
+                    <image src="{{icons.refund48}}"></image>
+                </view>
+                <view class="text">退换货</view>
+            </navigator>
+        </view>
+    </view>
+    <view class="fui-cell-group fui-cell-click" style="margin-top:20rpx;">
+        <navigator class="fui-cell" hoverClass="none" url="/yb_mingpian/pages/fenxiao/pages/index/index?title={{shareSetting.other[12]}}" wx:if="{{shareSetting&&shareSetting.level!=0}}">
+            <image class="fui-cell-icon" src="{{icons.fenxiao}}"></image>
+            <view class="fui-cell-text">{{shareSetting.other[12]}}</view>
+            <view class="fui-cell-remark"></view>
+        </navigator>
+        <navigator class="fui-cell" hoverClass="none" url="/yb_mingpian/pages/member/favorite/index" wx:if="{{list[1].status==1}}">
+            <image class="fui-cell-icon" src="{{icons.like02}}"></image>
+            <view class="fui-cell-text">{{list[1].title}}</view>
+            <view class="fui-cell-remark">
+                <text class="badge" wx:if="{{member.favorites>0}}">{{member.favorites}}</text>
+            </view>
+        </navigator>
+        <navigator class="fui-cell" hoverClass="none" url="/yb_mingpian/pages/member/coupon/index" wx:if="{{list[2].status==1}}">
+            <image class="fui-cell-icon" src="{{icons.coupon02}}"></image>
+            <view class="fui-cell-text">{{list[2].title}}</view>
+            <view class="fui-cell-remark"></view>
+        </navigator>
+        <navigator class="fui-cell" hoverClass="none" url="/yb_mingpian/pages/appointment/index" wx:if="{{list[3].status==1}}">
+            <image class="fui-cell-icon" src="{{icons.appointment}}"></image>
+            <view class="fui-cell-text">{{list[3].title}}</view>
+            <view class="fui-cell-remark"></view>
+        </navigator>
+        <navigator class="fui-cell" hoverClass="none" url="/yb_mingpian/pages/kanjia/my_record/index" wx:if="{{list[4].status==1}}">
+            <image class="fui-cell-icon" src="{{icons.kj_cion}}"></image>
+            <view class="fui-cell-text">{{list[4].title}}</view>
+            <view class="fui-cell-remark"></view>
+        </navigator>
+        <navigator class="fui-cell" hoverClass="none" url="/yb_mingpian/pages/kanjia/order/index" wx:if="{{list[5].status==1}}">
+            <image class="fui-cell-icon" src="{{icons.kj_order_cion}}"></image>
+            <view class="fui-cell-text">{{list[5].title}}</view>
+            <view class="fui-cell-remark"></view>
+        </navigator>
+        <navigator class="fui-cell" hoverClass="none" url="/yb_mingpian/pages/pintuan/pages/group/index" wx:if="{{list[6].status==1}}">
+            <image class="fui-cell-icon" src="{{icons.group_icon}}"></image>
+            <view class="fui-cell-text">{{list[6].title}}</view>
+            <view class="fui-cell-remark"></view>
+        </navigator>
+        <navigator class="fui-cell" hoverClass="none" url="/yb_mingpian/pages/pintuan/pages/orders/index" wx:if="{{list[7].status==1}}">
+            <image class="fui-cell-icon" src="{{icons.kj_order_cion}}"></image>
+            <view class="fui-cell-text">{{list[7].title}}</view>
+            <view class="fui-cell-remark"></view>
+        </navigator>
+        <navigator class="fui-cell" hoverClass="none" wx:if="{{list[8].status==1}}">
+            <view class="service_box">
+                <contact-button class="user_service" sessionFrom="weapp" size="20" type="default-light"></contact-button>
+                <contact-button class="user_service" sessionFrom="weapp" size="20" type="default-light"></contact-button>
+                <contact-button class="user_service" sessionFrom="weapp" size="20" type="default-light"></contact-button>
+                <contact-button class="user_service" sessionFrom="weapp" size="20" type="default-light"></contact-button>
+                <contact-button class="user_service" sessionFrom="weapp" size="20" type="default-light"></contact-button>
+                <contact-button class="user_service" sessionFrom="weapp" size="20" type="default-light"></contact-button>
+                <contact-button class="user_service" sessionFrom="weapp" size="20" type="default-light"></contact-button>
+                <contact-button class="user_service" sessionFrom="weapp" size="20" type="default-light"></contact-button>
+                <contact-button class="user_service" sessionFrom="weapp" size="20" type="default-light"></contact-button>
+                <contact-button class="user_service" sessionFrom="weapp" size="20" type="default-light"></contact-button>
+                <contact-button class="user_service" sessionFrom="weapp" size="20" type="default-light"></contact-button>
+                <contact-button class="user_service" sessionFrom="weapp" size="20" type="default-light"></contact-button>
+                <contact-button class="user_service" sessionFrom="weapp" size="20" type="default-light"></contact-button>
+                <contact-button class="user_service" sessionFrom="weapp" size="20" type="default-light"></contact-button>
+                <contact-button class="user_service" sessionFrom="weapp" size="20" type="default-light"></contact-button>
+                <contact-button class="user_service" sessionFrom="weapp" size="20" type="default-light"></contact-button>
+            </view>
+            <image class="fui-cell-icon" src="{{icons.service02}}"></image>
+            <view class="fui-cell-text" data-type="contact">{{list[8].title}}</view>
+            <view class="fui-cell-remark"></view>
+        </navigator>
+        <navigator class="fui-cell" hoverClass="none" url="/yb_mingpian/pages/member/address/index" wx:if="{{list[9].status==1}}">
+            <image class="fui-cell-icon" src="{{icons.location02}}"></image>
+            <view class="fui-cell-text">{{list[9].title}}</view>
+            <view class="fui-cell-remark"></view>
+        </navigator>
+        <navigator class="fui-cell" hoverClass="none" url="/yb_mingpian/pages/member/about/index" wx:if="{{list[10].status==1}}">
+            <image class="fui-cell-icon" src="{{icons.about02}}"></image>
+            <view class="fui-cell-text">{{list[10].title}}</view>
+            <view class="fui-cell-remark"></view>
+        </navigator>
+    </view>
+    <navigator hoverClass="none" style="padding-top:50rpx;" url="/yb_mingpian/pages/member/about/index" wx:if="{{member.copyright}}">
+        <view style="text-align:center;color:#999;font-size:0.7rem;">{{member.copyright}} </view>
+    </navigator>
+    <block wx:if="{{showtabbar}}">
+        <view style="height:100rpx"></view>
+        <include src="/yb_mingpian/pages/common/menu.wxml"></include>
+    </block>
+</view>

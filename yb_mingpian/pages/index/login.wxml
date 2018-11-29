@@ -1,0 +1,13 @@
+<view class="wx_user_login_box" style="z-index:9999" wx:if="{{display}}">
+    <view class="wx_user_login">
+        <view class="wx_login_info_tit">
+            <text>登录并授权</text>
+        </view>
+        <view class="wx_login_info">
+            <text>申请获取以下权限</text>
+            <text>获得你的公开信息(昵称，头像)</text>
+            <text style="color:#FFEFDB">{{pid}}</text>
+        </view>
+        <button bindgetuserinfo="onGotUserInfo" class="wx_user_login_btn" lang="zh_CN" openType="getUserInfo" style="background:#f7f7f7;color:#1aad19;height:3rem;line-height:3rem;border:0;">允许</button>
+    </view>
+</view>

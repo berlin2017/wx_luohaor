@@ -1,0 +1,143 @@
+<view class="body" wx:if="{{show}}">
+    <view id="bd">
+        <view class="chat-m1">
+            <view class="msgL1">
+                <view class="li li-time">
+                    <text>{{info.create_time}}</text>
+                </view>
+                <view class="li li-left">
+                    <view class="k1">
+                        <view class="imgb">
+                            <image mode="aspectFill" src="{{info.head_photo?info.head_photo:'/yb_mingpian/static/card/defaultlogo.png'}}"></image>
+                        </view>
+                    </view>
+                    <view class="k2">
+                        <view class="txtb">
+                            <view class="m1">
+                                <text>你好,我是{{info.bus.name}}的{{info.user_name}}，欢迎进入我的名片,有什么可以帮到你的吗?你可以在这里跟我实时沟通。</text>
+                            </view>
+                            <view class="m2">
+                                <view class="p1">
+                                    <text>通过我的名片你还可以：</text>
+                                </view>
+                                <view class="ul-List5">
+                                    <view class="li">
+                                        <view bindtap="url" class="ulList5-m1" data-i="1">
+                                            <image class="img1" mode="aspectFit" src="/yb_mingpian/static/card/chat/ly-img2.jpg"></image>
+                                            <text class="txtbox">进入我的名片</text>
+                                        </view>
+                                    </view>
+                                    <view class="li">
+                                        <view bindtap="url" class="ulList5-m1" data-i="2">
+                                            <image class="img1" mode="aspectFit" src="/yb_mingpian/static/card/chat/ly-img4.jpg"></image>
+                                            <text class="txtbox">查看我们公司官网</text>
+                                        </view>
+                                    </view>
+                                    <view class="li">
+                                        <view bindtap="url" class="ulList5-m1" data-i="3">
+                                            <image class="img1" mode="aspectFit" src="/yb_mingpian/static/card/chat/ly-img5.jpg"></image>
+                                            <text class="txtbox">查看我们公司商品</text>
+                                        </view>
+                                    </view>
+                                    <view class="li">
+                                        <view bindtap="url" class="ulList5-m1" data-i="4">
+                                            <image class="img1" mode="aspectFit" src="/yb_mingpian/static/card/chat/ly-img6.jpg"></image>
+                                            <text class="txtbox">查看我的动态</text>
+                                        </view>
+                                    </view>
+                                    <view class="li" wx:if="{{info.tel}}">
+                                        <view bindtap="phone" class="ulList5-m1 nbk" data-phone="{{info.tel}}">
+                                            <text class="txtbox">拨打电话</text>
+                                            <image class="img1" mode="aspectFit" src="/yb_mingpian/static/card/chat/ly-img7.jpg"></image>
+                                        </view>
+                                    </view>
+                                    <view class="li" wx:if="{{info.wechat_number}}">
+                                        <view bindtap="Clipboard" class="ulList5-m1 nbk" data-i="{{info.wechat_number}}">
+                                            <text class="txtbox">复制微信</text>
+                                            <image class="img1" mode="aspectFit" src="/yb_mingpian/static/card/chat/ly-img8.jpg"></image>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <block wx:for="{{list}}">
+                    <view class="li li-time" wx:if="{{f.getDateDiff(list[index].create_time)!=f.getDateDiff(list[index-1].create_time)||index==0}}">
+                        <text>{{f.getDateDiff(item.create_time)}}</text>
+                    </view>
+                    <view class="li li-{{item.type==1?'right':'left'}}">
+                        <view class="k1">
+                            <view class="imgb">
+                                <image mode="aspectFill" src="{{item.type==1?item.user_pic:item.staff_pic}}"></image>
+                            </view>
+                        </view>
+                        <view class="k2">
+                            <view class="chats_photo_box" wx:if="{{item.post_type==2}}">
+                                <image class="chats_photo" mode="aspectFill" src="{{item.post_message}}"></image>
+                            </view>
+                            <view class="clear"></view>
+                            <view class="txtb" wx:if="{{item.post_type==1}}">
+                                <view class="m2">
+                                    <view class="m1">
+                                        <text>{{item.post_message}}</text>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+                <view class="li li-right" wx:if="{{show_news}}">
+                    <view class="k1">
+                        <view class="imgb">
+                            <image mode="aspectFill" src="{{info.head_photo}}"></image>
+                        </view>
+                    </view>
+                    <view class="k2">
+                        <image class="send_icon" mode="aspectFill" src="/yb_mingpian/static/card/send_icon02.png" wx:if="{{post_type==2&&state==1}}"></image>
+                        <image class="send_icon" mode="aspectFill" src="/yb_mingpian/static/card/send_icon01.png" wx:if="{{post_type==2&&state==2}}"></image>
+                        <view class="chats_photo_box" wx:if="{{post_type==2}}">
+                            <image class="chats_photo" mode="aspectFill" src="{{pic_path}}"></image>
+                        </view>
+                        <view class="clear"></view>
+                        <image class="send_icon" mode="aspectFill" src="/yb_mingpian/static/card/send_icon02.png" wx:if="{{post_type==1&&state==1}}"></image>
+                        <image class="send_icon" mode="aspectFill" src="/yb_mingpian/static/card/send_icon01.png" wx:if="{{post_type==1&&state==2}}"></image>
+                        <view class="txtb" wx:if="{{post_type==1}}">
+                            <view class="m2">
+                                <view class="m1">
+                                    <text>{{post_message}}</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="clear"></view>
+        <view class="chat-m2"></view>
+        <view style="height:150px"></view>
+    </view>
+    <view class="chat-fd">
+        <view class="clear"></view>
+        <view class="m2">
+            <view class="j1">
+                <input bindconfirm="bindconfirm" bindinput="bindblur" class="inp1" confirmHold="true" confirmType="done" cursorSpacing="10" placeholder="" value="{{post_message}}"></input>
+            </view>
+            <view class="j2" style="position: relative;">
+                <form reportSubmit bindsubmit="bindconfirm" wx:if="{{post_message!=''}}">
+                    <button class="test_button" formType="submit" style="width:100%;height:68rpx;overflow: hidden;z-index:999999999999;background:#1aad19;position:absolute;top:-4rpx;left:8rpx;font-size:26rpx;color:#fff;padding:0;text-align:center;">发送</button>
+                </form>
+                <view bindtap="show_pic_button" class="more">
+                    <image mode="aspectFit" src="/yb_mingpian/static/card/chat/ly-img10.jpg"></image>
+                </view>
+            </view>
+        </view>
+        <view class="add_box" wx:if="{{pic_show}}">
+            <view catchtap="chooseImageTap1" class="add_li">
+                <image mode="aspectFit" src="/yb_mingpian/static/card/photo_icon.png"></image>
+                <text>图片</text>
+            </view>
+        </view>
+    </view>
+</view>
+<wxs module="f" src="../../utils/wxs/common.wxs" />

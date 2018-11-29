@@ -1,0 +1,121 @@
+<view class="body" wx:if="{{show}}">
+    <view class="none_info_box" wx:if="{{list.length==0&&loaded}}">
+        <image class="none_pic" mode="aspectFill" src="/yb_mingpian/static/card/none_info.png"></image>
+        <text class="none_text">暂无信息！</text>
+    </view>
+    <include src="../index/login.wxml"></include>
+    <view id="bd">
+        <view bindtap="{{phone_status&&phone_status.dynamic_get_pho==1&&get_phone?'':'to_chat'}}" class="leave_message" wx:if="{{card_id!=0}}">
+            <button bindgetphonenumber="{{get_phone?'getPhoneNumber':''}}" class="test_button" openType="{{phone_status&&phone_status.dynamic_get_pho==1&&get_phone?'getPhoneNumber':''}}" style="width:100%;height:100%;overflow: hidden;z-index:999999999999;filter:alpha(Opacity=0);-moz-opacity:0;opacity:0;position:absolute;top:0;left:0;"></button>
+            <image mode="aspectFill" src="/yb_mingpian/static/card/leave_message_icon.png"></image>
+            <text class="no" wx:if="{{news_num&&news_num>0}}">{{news_num}}</text>
+        </view>
+        <view class="pg-m7">
+            <view class="pgm71">
+                <view class="dtL1-ul">
+                    <view class="li" wx:for="{{list}}">
+                        <view class="bx1">
+                            <image class="img1" mode="scaleToFill" src="{{item.mem_info.logo}}"></image>
+                        </view>
+                        <view class="bx2">
+                            <view class="m1">
+                                <view class="k1" wx:if="{{item.staff_id==0}}">
+                                    <view class="h3">
+                                        <text>{{item.mem_info.name}}</text>
+                                    </view>
+                                    <view class="small">
+                                        <text>公司</text>
+                                    </view>
+                                </view>
+                                <view class="k1" wx:if="{{item.staff_id!=0}}">
+                                    <view class="h3">
+                                        <text>{{item.mem_info.user_name}}</text>
+                                    </view>
+                                </view>
+                                <view class="k2"></view>
+                            </view>
+                            <view class="m2" wx:if="{{item.article_id==0}}">
+                                <view class="k1">
+                                    <text>{{item.content}}</text>
+                                </view>
+                                <view class="k2" wx:if="{{item.pic_arr}}">
+                                    <view class="imgL2-ul">
+                                        <view class="li" wx:for="{{item.pic_arr}}" wx:for-index="key" wx:for-item="val">
+                                            <view class="imgL2-m1">
+                                                <image bindtap="previewImage" data-id="{{item.id}}" data-index="{{key}}" mode="aspectFill" src="{{val}}"></image>
+                                            </view>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="m2" wx:if="{{item.article_id!=0}}">
+                                <view class="k1">
+                                    <text></text>
+                                </view>
+                                <view bindtap="to_article" class="k2" data-id="{{item.article_id}}">
+                                    <view class="dc-imgp1">
+                                        <view class="j1">
+                                            <image mode="aspectFit" src="{{item.article.image}}"></image>
+                                        </view>
+                                        <view class="j2">
+                                            <text>{{item.article.title}}</text>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="m3" style="z-index: 9999999999">
+                                <view class="k1">
+                                    <text>{{f.getDateDiff(item.create_time)}}</text>
+                                </view>
+                                <view class="list_info_count_btn" wx:if="{{item.more}}">
+                                    <view bindtap="thumbs_up" class="list_info_count_btn_li" data-id="{{item.id}}" data-index="{{index}}">
+                                        <image mode="aspectFit" src="/yb_mingpian/static/card/more_btn_icon01.png"></image>
+                                        <text>赞</text>
+                                    </view>
+                                    <view bindtap="comm" class="list_info_count_btn_li" data-id="{{item.id}}" data-index="{{index}}" data-user_id="{{item.user_id}}">
+                                        <image mode="aspectFit" src="/yb_mingpian/static/card/more_btn_icon03.png"></image>
+                                        <text>评论</text>
+                                    </view>
+                                </view>
+                                <view bindtap="show_more" class="k2" data-index="{{index}}" data-more="{{item.more}}">
+                                    <image mode="aspectFit" src="/yb_mingpian/static/card/pt-img27.png"></image>
+                                </view>
+                            </view>
+                            <view bindtap="colse_more" class="pop_bg_box" data-index="{{index}}" wx:if="{{item.more}}"></view>
+                            <view class="m4" wx:if="{{item.zan.length!=0||item.comment.length!=0}}">
+                                <view class="dc-zhan">
+                                    <view class="j1">
+                                        <text wx:for="{{item.zan}}" wx:for-item="val">{{val.nick_name}}</text>
+                                    </view>
+                                    <view class="j2" wx:if="{{item.comment}}">
+                                        <view class="dc-liuyan" wx:for="{{item.comment}}" wx:for-item="val">
+                                            <text class="tt">{{val.nick_name}}：</text>
+                                            <view class="txt1">
+                                                <text>{{val.details}}</text>
+                                            </view>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="page_b_comment_box" wx:if="{{comm}}">
+    <view class="page_b_comment">
+        <form bindsubmit="comm_submit">
+            <input adjustPosition="true" confirmType="send" cursorSpacing="10" focus="true" name="content" placeholder="请输入评论内容" type="text" value=""></input>
+            <input name="in_id" style="display:none" value="{{in_id}}"></input>
+            <input name="index" style="display:none" value="{{comm_index}}"></input>
+            <input name="user_id" style="display:none" value="{{tzuser_id}}"></input>
+            <button class="form_btn" formType="submit">
+                <text>发送</text>
+            </button>
+        </form>
+    </view>
+</view>
+<view bindtap="show_comm" class="pop_bg" wx:if="{{comm}}"></view>
+<wxs module="f" src="../../utils/wxs/common.wxs" />

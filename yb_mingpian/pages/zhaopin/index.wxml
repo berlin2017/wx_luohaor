@@ -1,0 +1,13 @@
+<import src="/yb_mingpian/utils/wxParse/wxParse.wxml"></import>
+<view class="page_content" wx:if="{{show}}">
+    <view class="case_tit">{{info.name}}</view>
+    <view class="case_time" wx:if="{{info.pay}}">工资待遇:{{info.pay}}</view>
+    <view class="case_time" wx:if="{{info.exp}}">工作经验:{{info.exp}}</view>
+    <view class="case_time" wx:if="{{info.major}}">学历要求:{{info.major}}</view>
+    <view class="wxParse case_content">
+        <template is="wxParse" data="{{wxParseData:wxParseData.nodes}}"></template>
+    </view>
+</view>
+<view bindtap="phone" class="hr_btn" data-phone="{{info.hr}}" wx:if="{{info.hr}}">
+    <view class="text">联系HR</view>
+</view>

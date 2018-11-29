@@ -1,0 +1,130 @@
+{
+    "pages": [
+        "yb_mingpian/pages/card/index",
+        "yb_mingpian/pages/shop/index",
+        "yb_mingpian/pages/cardinfo/index",
+        "yb_mingpian/pages/index/index",
+        "yb_mingpian/pages/power/index",
+        "yb_mingpian/pages/caregory/index",
+        "yb_mingpian/pages/goods/index/index",
+        "yb_mingpian/pages/goods/detail/index",
+        "yb_mingpian/pages/form/index",
+        "yb_mingpian/pages/order/index",
+        "yb_mingpian/pages/order/detail/index",
+        "yb_mingpian/pages/order/express/index",
+        "yb_mingpian/pages/order/comment/index",
+        "yb_mingpian/pages/order/create/index",
+        "yb_mingpian/pages/order/pay/index",
+        "yb_mingpian/pages/member/index/index",
+        "yb_mingpian/pages/member/favorite/index",
+        "yb_mingpian/pages/member/history/index",
+        "yb_mingpian/pages/member/address/index",
+        "yb_mingpian/pages/member/address/post",
+        "yb_mingpian/pages/member/address/select",
+        "yb_mingpian/pages/member/cart/index",
+        "yb_mingpian/pages/member/about/index",
+        "yb_mingpian/pages/member/coupon/index",
+        "yb_mingpian/pages/member/map/index",
+        "yb_mingpian/pages/error/index",
+        "yb_mingpian/pages/find/index",
+        "yb_mingpian/pages/web/index",
+        "yb_mingpian/pages/image/index",
+        "yb_mingpian/pages/book_list/index",
+        "yb_mingpian/pages/book_info/index",
+        "yb_mingpian/pages/class_article/index",
+        "yb_mingpian/pages/class_image/index",
+        "yb_mingpian/pages/find_info/index",
+        "yb_mingpian/pages/contact/index",
+        "yb_mingpian/pages/shop_coupon/index",
+        "yb_mingpian/pages/product/index",
+        "yb_mingpian/pages/appointment/index",
+        "yb_mingpian/pages/message/index",
+        "yb_mingpian/pages/chats/chats",
+        "yb_mingpian/pages/zhaopin/index",
+        "yb_mingpian/pages/poster/index",
+        "yb_mingpian/pages/company/index"
+    ],
+    "window": {
+        "backgroundColor": "",
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#000000",
+        "navigationBarTitleText": "",
+        "navigationBarTextStyle": "",
+        "enablePullDownRefresh": true
+    },
+    "tabBar": {
+        "color": "#8b8b8b",
+        "selectedColor": "#1aad19",
+        "list": [
+            {
+                "pagePath": "yb_mingpian/pages/cardinfo/index",
+                "text": "名片",
+                "iconPath": "yb_mingpian/static/card/pt-img66.png",
+                "selectedIconPath": "yb_mingpian/static/card/pt-img7.png"
+            },
+            {
+                "pagePath": "yb_mingpian/pages/shop/index",
+                "text": "商城",
+                "iconPath": "yb_mingpian/static/card/pt-img15.png",
+                "selectedIconPath": "yb_mingpian/static/card/pt-img14.png"
+            },
+            {
+                "pagePath": "yb_mingpian/pages/message/index",
+                "text": "动态",
+                "iconPath": "yb_mingpian/static/card/pt-img64.png",
+                "selectedIconPath": "yb_mingpian/static/card/pt-img32.png"
+            },
+            {
+                "pagePath": "yb_mingpian/pages/index/index",
+                "text": "官网",
+                "iconPath": "yb_mingpian/static/card/pt-img65.png",
+                "selectedIconPath": "yb_mingpian/static/card/pt-img34.png"
+            }
+        ]
+    },
+    "subPackages": [
+        {
+            "root": "yb_mingpian/pages/kanjia",
+            "pages": [
+                "index/index",
+                "goods_info/index",
+                "discount_info/index",
+                "good_list/index",
+                "my_record/index",
+                "record/index",
+                "share_info/index",
+                "order/create/index",
+                "order/detail/index",
+                "order/pay/index",
+                "order/index"
+            ]
+        },
+        {
+            "root": "yb_mingpian/pages/pintuan",
+            "pages": [
+                "pages/index/index",
+                "pages/index/list",
+                "pages/goods/detail",
+                "pages/goods/payfor",
+                "pages/group/index",
+                "pages/group/detail",
+                "pages/orders/index",
+                "pages/orders/detail"
+            ]
+        },
+        {
+            "root": "yb_mingpian/pages/fenxiao",
+            "pages": [
+                "pages/index/index",
+                "pages/add-share/index",
+                "pages/share-team/share-team",
+                "pages/share-order/share-order",
+                "pages/cash/cash",
+                "pages/cash-detail/cash-detail",
+                "pages/share-money/share-money",
+                "pages/share-qrcode/share-qrcode"
+            ]
+        }
+    ],
+    "debug": false
+}

@@ -1,0 +1,38 @@
+<view class="page" style="background-image: url({{page_bg_img}});background-color:{{page_bg_color}};" wx:if="{{show}}">
+    <view bindtap="{{phone_status&&phone_status.web_get_pho==1&&get_phone?'':'to_chat'}}" class="leave_message" wx:if="{{card_id!=0}}">
+        <button bindgetphonenumber="{{get_phone?'getPhoneNumber':''}}" class="test_button" openType="{{phone_status&&phone_status.web_get_pho==1&&get_phone?'getPhoneNumber':''}}" style="width:100%;height:100%;overflow: hidden;z-index:999999999999;filter:alpha(Opacity=0);-moz-opacity:0;opacity:0;position:absolute;top:0;left:0;"></button>
+        <image mode="aspectFill" src="/yb_mingpian/static/card/leave_message_icon.png"></image>
+        <text class="no" wx:if="{{news_num&&news_num>0}}">{{news_num}}</text>
+    </view>
+    <block wx:for="{{index}}">
+        <include src="search.wxml" wx:if="{{item.type=='search'}}"></include>
+        <include src="banner.wxml" wx:if="{{item.type=='banner'}}"></include>
+        <include src="navigation.wxml" wx:if="{{item.type=='navigation'}}"></include>
+        <include src="advert.wxml" wx:if="{{item.type=='advert'}}"></include>
+        <include src="goods.wxml" wx:if="{{item.type=='goods'}}"></include>
+        <include src="blank.wxml" wx:if="{{item.type=='blank'}}"></include>
+        <include src="line.wxml" wx:if="{{item.type=='line'}}"></include>
+        <include src="headline.wxml" wx:if="{{item.type=='headline'}}"></include>
+        <include src="article.wxml" wx:if="{{item.type=='article'}}"></include>
+        <include src="edit_button.wxml" wx:if="{{item.type=='edit_button'}}"></include>
+        <include src="position.wxml" wx:if="{{item.type=='position'}}"></include>
+        <include src="rich_text.wxml" wx:if="{{item.type=='rich_text'}}"></include>
+        <include src="edit_piclist.wxml" wx:if="{{item.type=='edit_piclist'}}"></include>
+        <include src="floaticon.wxml" wx:if="{{item.type=='floaticon'}}"></include>
+        <include src="video.wxml" wx:if="{{item.type=='edit_video'}}"></include>
+        <include src="comment.wxml" wx:if="{{item.type=='comment'}}"></include>
+        <include src="form_submit.wxml" wx:if="{{item.type=='message_board'}}"></include>
+        <include src="store_door.wxml" wx:if="{{item.type=='store_door'}}"></include>
+        <include src="tripartite.wxml" wx:if="{{item.type=='tripartite'}}"></include>
+        <include src="quartet.wxml" wx:if="{{item.type=='quartet'}}"></include>
+        <include src="power_form.wxml" wx:if="{{item.type=='edit_form'}}"></include>
+        <include src="kefu.wxml" wx:if="{{item.type=='customer'}}"></include>
+        <include src="phone.wxml" wx:if="{{item.type=='phone'}}"></include>
+        <include src="ad.wxml" wx:if="{{item.type=='ad'}}"></include>
+        <include src="notice.wxml" wx:if="{{item.type=='announcement'}}"></include>
+        <include src="zhaopin.wxml" wx:if="{{item.type=='join_us'}}"></include>
+    </block>
+    <view bindlongtap="copyright" class="wx_app_copyright">
+        <text wx:if="{{is_copyright}}"> v1.0.12</text>
+    </view>
+</view>

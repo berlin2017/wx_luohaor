@@ -1,0 +1,50 @@
+<import src="../template/toast.wxml"></import>
+<template is="toast" data="{{toast:toast}}"></template>
+
+  <view class='top_header'>
+    <view class='top_view'>
+      <image class='top_header_image' src='../../../../static/images/right_white.png'></image>
+      <text class='top_header_tip' wx:if='{{!number}}'>新开团，你将成为团长</text>
+       <text class='top_header_tip' wx:if='{{number}}'>组团进行中，团号为{{number}}号。</text>
+    </view>
+  </view>
+
+<view class="address bg-fff flex-col flex-x-center">
+    <view class="flex-row address-top flex-y-center" style='margin-bottom:10px;'>
+        <text class='address_name'>姓  名：</text> 
+        <input class="name-input" placeholder="请填写真实姓名" bindinput="getuserName"></input>
+    </view>
+    <view class="flex-row flex-y-center address-top" style='margin-top:5px;'>
+        <text class='address_name'>联系电话：</text>
+        <input class="name-input" placeholder="请填写手机号" maxlength="11" bindinput="gettelNumber" input-type='phone'></input>        
+    </view>
+</view>
+
+<view class="goods-item flex-row">
+    <image mode="aspectFill" src="{{goodsInfo.img}}"></image>
+    <view class="goods-info flex-grow-1">
+        <view class="goods-title flex-row">{{goodsInfo.name}}</view>
+        <view class="goods-property flex-row">
+            <view class="flex-grow-1">
+                <view class="goods-spec" wx:for="{{goodsProp}}" wx:key="unique">
+                    <text>{{item.pname}}</text>{{item.name}}
+				</view>
+            </view>
+            <view class="goods-price flex-grow-1">¥{{goodsPrice}}</view>
+        </view>
+    </view>
+    <view class="clearfix"></view>
+</view>
+
+<view class='rule-layout'>
+  <text class='rule_title'>拼团规则</text>
+  <text class='rule_info'>开团/参团<text style='margin-left:10px;margin-right:10px;'>》</text>邀请好友<text style='margin-left:10px;margin-right:10px;'>》</text>达到人数，团购成功</text>
+</view>
+
+<view class="flex-row footer">
+    <view class="flex-grow-1 flex-y-center footer-title">
+        <text style="margin-top: -3pt;">总计：</text>
+        <text class="goods-price">¥{{totalPrice}}</text>
+	</view>
+    <view bindtap="goToPay" class="flex-grow-0 btn flex-y-center flex-x-center">立即支付</view>
+</view>

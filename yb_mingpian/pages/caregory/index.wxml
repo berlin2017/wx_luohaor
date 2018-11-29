@@ -1,0 +1,45 @@
+<scroll-view bindscroll="scroll" class="content" scrollIntoView="{{toView}}" scrollTop="{{scrollY}}" scrollWithAnimation="true" scrollY="true" wx:if="{{cate_type==0}}">
+    <view class="shop_list_right" wx:for="{{category}}">
+        <view class="address_top" id="{{'inToView'+index}}">
+            <view class="class_tit">{{item.short_name}}</view>
+        </view>
+        <view class="shop_class_box" wx:for="{{item.cate}}">
+            <navigator hoverClass="none" url="/yb_mingpian/pages/goods/index/index?cate={{item.cate_id}}">
+                <view class="shop_class_photo">
+                    <image src="{{item.cate_pic}}"></image>
+                </view>
+                <view class="address_bottom">{{item.cate_name}}</view>
+            </navigator>
+        </view>
+        <view class="clear"></view>
+    </view>
+</scroll-view>
+<scroll-view bindscroll="scroll" class="content" scrollIntoView="{{toView}}" scrollTop="{{scrollY}}" scrollWithAnimation="true" scrollY="true" style="margin-bottom:{{showtabbar?100:0}}rpx" wx:if="{{cate_type==1}}">
+    <view class="shop_list_right" wx:for="{{category}}">
+        <view class="address_top" id="{{'inToView'+index}}" wx:if="{{item.goods_list.length>0}}">
+            <view class="class_tit">{{item.short_name}}</view>
+        </view>
+        <view class="shop_info_box" wx:for="{{item.goods_list}}">
+            <navigator hoverClass="none" url="/yb_mingpian/pages/goods/detail/index?id={{item.goods_id}}">
+                <view class="shop_info_photo">
+                    <image src="{{item.pic.img_cover}}"></image>
+                </view>
+                <view class="address_bottom">{{item.goods_name}}</view>
+            </navigator>
+        </view>
+        <view class="clear"></view>
+    </view>
+</scroll-view>
+<view class="orientation_region">
+    <view bindtap="tabFun" class="left_box">
+        <view bindtap="scrollToViewFn" class="orientation_city {{curHdIndex==index?'active':''}}" data-id="{{index}}" style="z-index:999;" wx:for="{{category}}">{{item.cate_name}}</view>
+    </view>
+    <block wx:if="{{showtabbar}}">
+        <view style="height:150rpx;width:100%;"></view>
+        <include src="/yb_mingpian/pages/common/menu.wxml"></include>
+    </block>
+</view>
+<block wx:if="{{showtabbar}}">
+    <view style="height:150rpx;width:100%;"></view>
+    <include src="/yb_mingpian/pages/common/menu.wxml"></include>
+</block>

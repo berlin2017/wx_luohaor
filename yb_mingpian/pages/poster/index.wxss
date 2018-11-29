@@ -1,0 +1,37 @@
+page {
+    background: #f6f6f6;
+}
+
+.poster_img {
+    width: 640rpx;
+    height: 1020rpx;
+    margin: 0 auto;
+    overflow: hidden;
+    padding-top: 60rpx;
+}
+
+.poster_img image {
+    height: 1020rpx;
+}
+
+.poster_btn_box {
+    position: fixed;
+    bottom: 40rpx;
+    left: 0;
+    width: 100%;
+}
+
+.poster_btn {
+    background: #1aad19;
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+    height: 90rpx;
+    line-height: 90rpx;
+    border-radius: 10rpx;
+}
+
+.poster_btn text {
+    font-size: 30rpx;
+    color: #fff;
+}

@@ -1,0 +1,3 @@
+<view>
+    <video autoplay="{{video}}" id="myVideo" poster="{{item.imgurl}}" src="{{item.vip_url?item.vip_url:item.video_url}}" style="width:100%;height:{{item.video_height}}px;"></video>
+</view>

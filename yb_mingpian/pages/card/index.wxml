@@ -1,0 +1,47 @@
+<view class="body" wx:if="{{show}}">
+    <include src="../index/login.wxml"></include>
+    <view class="wp" id="bd">
+        <view class="pg-m1">
+            <view bindtap="" class="pgm11" data-id="{{item.id}}" data-index="{{index}}" wx:for="{{list}}">
+                <view class="p">
+                    <text>{{item.add_time}} 来自{{item.source}}</text>
+                </view>
+                <view class="clear"></view>
+                <view class="dc-card1" style="position: relative;">
+                    <form reportSubmit bindsubmit="bindconfirm">
+                        <input name="id" style="display:none" type="text" value="{{item.id}}"></input>
+                        <button class="test_button" formType="submit" style="width:100%;height:100%;z-index:999999999999;filter:alpha(Opacity=0);-moz-opacity:0;opacity:0;position:absolute;top:0;left:0;"></button>
+                    </form>
+                    <view class="bx1">
+                        <view class="m1">
+                            <view class="p1">{{item.mch_name?item.mch_name:'这里是公司名称'}}</view>
+                            <view class="k1">
+                                <view class="h2">{{item.user_name}}</view>
+                                <view class="small">{{item.position}}</view>
+                            </view>
+                            <view class="p2" wx:if="{{item.tel}}">{{item.tel}}</view>
+                            <view class="p2" wx:if="{{item.email}}">{{item.email}}</view>
+                        </view>
+                        <view class="m2">
+                            <image mode="aspectFill" src="{{item.head_photo}}"></image>
+                            <view class="dc-xh" wx:if="{{item.wd_num&&item.wd_num>0}}">{{item.wd_num}}</view>
+                        </view>
+                    </view>
+                    <view class="bx2">
+                        <view class="m1">
+                            <view class="p1">No.{{index+1}}</view>
+                        </view>
+                        <view catchtap="click" class="m2" data-id="{{item.id}}">
+                            <view class="dc-sand">
+                                <text></text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view wx:if="{{list.length==0&&loading}}">
+            <button bindtap="to_index" style="background:green;color:#ffffff;margin-top:240px">去官网看看</button>
+        </view>
+    </view>
+</view>

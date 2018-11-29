@@ -1,0 +1,8 @@
+<view class="poster_img">
+    <image bindtap="previewImage" mode="scaleToFill" src="{{path}}"></image>
+</view>
+<view class="poster_btn_box">
+    <view bindtap="download" class="poster_btn">
+        <text>保存名片海报</text>
+    </view>
+</view>

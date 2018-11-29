@@ -1,0 +1,15 @@
+<view class="hr_box" wx:if="{{item.list.length>0}}">
+    <view bindtap="to_zhaopin" class="hr_li" data-id="{{val.key_id}}" wx:for="{{item.list}}" wx:for-item="val">
+        <view class="hr_tit">
+            <text>{{val.name}}</text>
+        </view>
+        <view class="hr_term">
+            <text>薪资:{{val.pay}}</text>
+            <text>经验:{{val.exp}}</text>
+            <text>学历:{{val.major}}</text>
+        </view>
+        <view class="hr_li_arrow">
+            <image src="/yb_mingpian/static/card/right_arrow.png"></image>
+        </view>
+    </view>
+</view>

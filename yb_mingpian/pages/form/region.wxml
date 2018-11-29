@@ -1,0 +1,10 @@
+<view class="form_tit">{{f_item.title}}<text class="ture_color" wx:if="{{f_item.empty}}">*</text>
+</view>
+<view class="form_li right_arrow">
+    <picker bindchange="bindPickerChange" customItem="{{customItem}}" id="{{f_item.name}}" mode="region" value="{{data[f_item.name]}}">
+        <view class="picker">
+      当前选择：{{data[f_item.name][0]?data[f_item.name][0]+'，':'请选择'}}{{data[f_item.name][1]?data[f_item.name][1]+'，':''}}{{data[f_item.name][2]?data[f_item.name][2]:''}}
+    </view>
+    </picker>
+</view>
+<input name="{{f_item.name}}" style="display:none" value="{{data[f_item.name]}}"></input>

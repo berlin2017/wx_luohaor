@@ -1,0 +1,10 @@
+<view class="form_tit">{{f_item.title}}<text class="ture_color" wx:if="{{f_item.empty}}">*</text>
+</view>
+<view class="form_li right_arrow">
+    <picker bindchange="bindPickerChange" end="{{f_item.end}}" id="{{f_item.name}}" mode="date" start="{{f_item.start}}" value="{{data[f_item.name]}}">
+        <view class="picker">
+      当前选择: {{data[f_item.name]?data[f_item.name]:'选择时间'}}
+       <input name="{{f_item.name}}" style="display:none" value="{{data[f_item.name]}}"></input>
+        </view>
+    </picker>
+</view>

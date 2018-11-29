@@ -1,0 +1,17 @@
+<view class="shop_box" style="background:{{item.bg_color}}">
+    <view class="shop_logo">
+        <image src="{{item.imgurl}}"></image>
+    </view>
+    <view class="shop_info">
+        <view class="shop_name">
+            <text>{{item.door_name}}</text>
+        </view>
+        <view class="shop_time">
+            <text>营业时间：{{item.door_job}}</text>
+        </view>
+    </view>
+    <view class="clear"></view>
+    <view bindtap="phone" class="shop_phone" data-phone="{{item.door_phone}}" wx:if="{{item.door_phone}}">
+        <image src="/yb_mingpian/static/images/shop_phone_icon.png"></image>
+    </view>
+</view>
